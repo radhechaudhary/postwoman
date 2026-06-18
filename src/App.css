@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Base style overrides */
+body {
+  font-family: var(--font-sans);
+}
+
+pre, code, textarea {
+  font-family: var(--font-mono);
+}
+
+/* Smooth modal scaling animation */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.97); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scrollbar customizations for a clean interface */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.2);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.4);
+}
+
+/* Tab bar horizontal scrollbar */
+.tab-bar::-webkit-scrollbar {
+  height: 2px;
+}
+
+.tab-bar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tab-bar::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.15);
+  border-radius: 9999px;
+}
+
+/* Smooth tab open animation */
+@keyframes tabSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scaleX(0.92);
+    max-width: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleX(1);
+    max-width: 220px;
+  }
+}
+
+.tab-bar > div {
+  animation: tabSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
